@@ -22,8 +22,8 @@ public class BasicAppiumTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("deviceName","testqa");
         capabilities.setCapability("platformVersion","7");
-        capabilities.setCapability("appPackage","com.example.android.contactmanager");
-        capabilities.setCapability("appActivity","com.example.android.contactmanager.ContactManager");
+        capabilities.setCapability("appPackage","com.vrproductiveapps.whendo");
+        capabilities.setCapability("appActivity","com.vrproductiveapps.whendo.ui.HomeActivity");
         capabilities.setCapability("platformName","Android");
 
         driver=new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
@@ -33,8 +33,17 @@ public class BasicAppiumTest {
     }
 
     @Test
-    public void verify_calculator(){
-        driver.findElement(By.id("com.example.android.contactmanager:id/addContactButton")).click();
+    public void verifyToDo(){
+        //Click plus
+        driver.findElement(By.id("com.vrproductiveapps.whendo:id/fab")).click();
+        //Llenar Form
+        //Titulo
+        driver.findElement(By.id("com.vrproductiveapps.whendo:id/noteTextTitle")).sendKeys("Test Prueba");
+        driver.findElement(By.id("com.vrproductiveapps.whendo:id/noteTextNotes")).sendKeys("Test Notes");
+        //Aceptar
+        driver.findElement(By.id("com.vrproductiveapps.whendo:id/saveItem")).click();
+
+
 
     }
 
