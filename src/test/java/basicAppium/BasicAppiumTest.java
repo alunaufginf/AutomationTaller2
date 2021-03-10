@@ -3,9 +3,11 @@ package basicAppium;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
@@ -42,6 +44,10 @@ public class BasicAppiumTest {
         driver.findElement(By.id("com.vrproductiveapps.whendo:id/noteTextNotes")).sendKeys("Test Notes");
         //Aceptar
         driver.findElement(By.id("com.vrproductiveapps.whendo:id/saveItem")).click();
+
+        String create = "Test Prueba";
+        WebElement message = driver.findElement(By.id("com.vrproductiveapps.whendo:id/home_list_item_text"));
+        Assert.assertEquals("Es correcto",create,message.getText());
 
 
 
